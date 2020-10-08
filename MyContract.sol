@@ -4,7 +4,38 @@ pragma solidity ^0.5.11;
 import 'Myprofile.sol';
 
 // by 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4 demo in remix.
-contract MyContract {
+
+
+
+contract MyParentContract {
+    constructor(uint aging) public {
+        
+    }
+    
+    
+}
+
+
+
+contract MyContract is MyParentContract {
+    
+    uint aging;
+    address admin;
+    
+    
+    // constructor : run only once when the contract is deployed.
+    
+    constructor(uint _aging) MyParentContract(_aging) public {
+        
+        aging = _aging;
+        admin = msg.sender; // so admin is the depolyer o f contract
+    
+    }
+    
+    
+    
+    
+    
    // Events emits data to web or mobile apps
    
   /*
